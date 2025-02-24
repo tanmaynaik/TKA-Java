@@ -42,9 +42,7 @@ public class SetConnectionEmp extends EmployeegetData {
 			
 			c.close();
 			
-		} catch (Exception e) {
-			
-		}
+		} catch (Exception e) {}
 	}
 
 }

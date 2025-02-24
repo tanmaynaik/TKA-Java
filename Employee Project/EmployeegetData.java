@@ -3,6 +3,7 @@ package com.setuptable;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -55,6 +56,11 @@ public class EmployeegetData extends HttpServlet{
 		
 		PrintWriter out = resp.getWriter();
 		out.print("<h1>"+"Data Inserted"+"</h1>");
+		resp.setContentType("text/html");
+		
+		RequestDispatcher rd = req.getRequestDispatcher("loginemployee.html");
+		rd.include(req, resp);
+		
 		
 	}
 
