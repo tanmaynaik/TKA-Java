@@ -7,7 +7,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -33,10 +32,15 @@ public class LoginEmployee extends HttpServlet {
 			ps.setString(2, password);
 			ps.executeQuery();
 			
-			
-
 			PrintWriter out = resp.getWriter();
-			out.print("<script>alert('login successful')</script>");
+
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				out.print("<script>alert('login successful')</script>");
+			}
+			else {
+				out.print("<script>alert('login failed')</script>");
+			}
 
 
 			c.close();
